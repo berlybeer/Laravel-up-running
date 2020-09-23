@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Greeting;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,4 +13,12 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('create-greeting', function(){
+  $greeting = new Greeting;
+  $greeting->body = 'Hello, world';
+  $greeting->save();
+});
+
+Route::get('first-greeting', function(){
+  return Greeting::first()->body;
+});
