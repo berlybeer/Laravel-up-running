@@ -34,4 +34,8 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'bugsnag' => [
+        'key' => env('BUGSNAG_API_KEY'),
+    ]
+
 ];

@@ -22,3 +22,5 @@ Route::get('create-greeting', function(){
 Route::get('first-greeting', function(){
   return Greeting::first()->body;
 });
+
+Route::get('/bugsnag', 'WelcomeController@index');
