@@ -12,4 +12,9 @@ class WelcomeController extends Controller
     {
         return "Welcome from the controller";
     }
+
+    public function helper()
+    {
+        return view('helper');
+    }
 }
