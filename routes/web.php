@@ -14,26 +14,15 @@ use App\Greeting;
 */
 
 
-Route::get('/', function () {
-  return "Hello, World!";
+Route::get('/', "WelcomeController@index");
+
+
+Route::get('users/{id}/friends', function($id){
+  return $id;
 });
 
-Route::post('/', function(){
-  //Handle someone sending a POST request to this route
-});
 
-Route::put('/', function(){
-  //Handle someone sending a PUT request to this route
-});
-
-Route::delete('/', function(){
-  //Handle someone sending a DELETE request to this route
-});
-
-Route::any('/', function(){
-  //Handle any verb request to this route
-});
-
-Route::match(['get', 'post'], '/', function(){
-  //Handle GET or POST requests to this route
+//You should also provide a default value for the route's corresponding variable
+Route::get('users/{id?}', function($id = 'fallbackId'){
+ return $id;
 });

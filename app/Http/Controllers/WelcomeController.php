@@ -10,8 +10,6 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $bugsnag = config('services.bugsnag.key');
-        dd($bugsnag);
-        return $bugsnag;
+        return "Welcome from the controller";
     }
 }
