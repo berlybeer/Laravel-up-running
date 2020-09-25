@@ -25,4 +25,9 @@ Route::get('/helper', "WelcomeController@helper");
 //Defining a route with name() in routes/web.php
 Route::get('members/{id}','MemberController@show')->name('members.show');
 
+Route::get('users/{userId}/comments/{commentId}', function($userId, $commentId){
+  $mix = "users/" . $userId . "/comments/" . $commentId;
+  return $mix;
+})->name('users.comments.show');
+
 
