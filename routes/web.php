@@ -24,3 +24,34 @@ Route::get('first-greeting', function(){
 });
 
 Route::get('/bugsnag', 'WelcomeController@index');
+
+Route::get('/hello', function(){
+  return "Hello World";
+});
+
+//This is not actually a static method per se,
+//but rather service location using Laravel's facades
+
+//If you prefer to avoid facades,
+//you can accomplish these same definitions like this:
+
+$router->get('/bye', function(){
+  return 'bye bye bye..';
+});
+
+Route::get('/', function(){
+  return view('welcome');
+});
+
+Route::get('about', function(){
+  return view('about');
+});
+
+Route::get('products', function(){
+  return view('products');
+});
+
+Route::get('services', function(){
+  return view('services');
+});
+
