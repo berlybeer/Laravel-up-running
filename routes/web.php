@@ -13,45 +13,27 @@ use App\Greeting;
 |
 */
 
-Route::get('create-greeting', function(){
-  $greeting = new Greeting;
-  $greeting->body = 'Hello, world';
-  $greeting->save();
+
+Route::get('/', function () {
+  return "Hello, World!";
 });
 
-Route::get('first-greeting', function(){
-  return Greeting::first()->body;
+Route::post('/', function(){
+  //Handle someone sending a POST request to this route
 });
 
-Route::get('/bugsnag', 'WelcomeController@index');
-
-Route::get('/hello', function(){
-  return "Hello World";
+Route::put('/', function(){
+  //Handle someone sending a PUT request to this route
 });
 
-//This is not actually a static method per se,
-//but rather service location using Laravel's facades
-
-//If you prefer to avoid facades,
-//you can accomplish these same definitions like this:
-
-$router->get('/bye', function(){
-  return 'bye bye bye..';
+Route::delete('/', function(){
+  //Handle someone sending a DELETE request to this route
 });
 
-Route::get('/', function(){
-  return view('welcome');
+Route::any('/', function(){
+  //Handle any verb request to this route
 });
 
-Route::get('about', function(){
-  return view('about');
+Route::match(['get', 'post'], '/', function(){
+  //Handle GET or POST requests to this route
 });
-
-Route::get('products', function(){
-  return view('products');
-});
-
-Route::get('services', function(){
-  return view('services');
-});
-
