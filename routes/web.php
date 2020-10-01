@@ -31,3 +31,28 @@ Route::get('users/{userId}/comments/{commentId}', function($userId, $commentId){
 })->name('users.comments.show');
 
 
+Route::group([], function () {
+  Route::get('hello', function () {
+      return 'Hello';
+  });
+  Route::get('world', function () {
+      return 'World';
+  });
+});
+
+Route::get('login', function(){
+  return "You need to login";
+})->name('login');
+
+
+Route::middleware('auth')->group(function(){
+  Route::get('dashboard', function(){
+    return view('dashboard');
+  });
+  Route::get('account', function(){
+    return view('account');
+  });
+});
+
+
+
