@@ -60,3 +60,17 @@ Route::get('/index', 'DashboardController@index');
 Route::get('/editusers', 'DashboardController@editUsers');
 
 
+Route::middleware('auth:api', 'throttle:3,1')->group(function(){
+  Route::get('/tries', function(){
+    echo "Only 3 times";
+  });
+});
+
+
+Route::middleware('throttle:3,1')->group(function(){
+  Route::get('/index', 'DashboardController@index');
+
+  Route::get('/editusers', 'DashboardController@editUsers');
+});
+
+
