@@ -74,3 +74,13 @@ Route::middleware('throttle:3,1')->group(function(){
 });
 
 
+Route::prefix('dashboard')->group(function(){
+  Route::get('/', function(){
+    echo "We are in the /dashboard path";
+  });
+  Route::get('users', function(){
+    echo "We are in the /dashboard/users";
+  });
+});
+
+
