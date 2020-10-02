@@ -55,4 +55,8 @@ Route::middleware('auth')->group(function(){
 });
 
 
+Route::get('/index', 'DashboardController@index');
+
+Route::get('/editusers', 'DashboardController@editUsers');
+
 

@@ -8,6 +8,10 @@ class WelcomeController extends Controller
 {
     //
 
+    public function __controller(){
+        
+    }
+
     public function index()
     {
         return "Welcome from the controller";
