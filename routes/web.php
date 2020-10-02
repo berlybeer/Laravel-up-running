@@ -83,4 +83,10 @@ Route::prefix('dashboard')->group(function(){
   });
 });
 
+//catch all unmatched paths:
+
+Route::fallback(function(){
+  echo "This is a unmatched path";
+});
+
 
