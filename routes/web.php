@@ -90,3 +90,17 @@ Route::fallback(function(){
 });
 
 
+
+
+
+//Parameterized subdomain routing
+
+Route::namespace('Customers')->group(function(){
+  Route::prefix('backend')->namespace('BackEnd')->group(function(){
+    Route::get('customers', 'Customer@index');
+  });
+
+  Route::prefix('frontend')->namespace('FrontEnd')->group(function(){
+    Route::get('customers','Customer@index');
+  });
+});
