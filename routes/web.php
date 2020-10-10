@@ -55,9 +55,9 @@ Route::middleware('auth')->group(function(){
 });
 
 
-Route::get('/index', 'DashboardController@index');
 
-Route::get('/editusers', 'DashboardController@editUsers');
+
+
 
 
 Route::middleware('auth:api', 'throttle:3,1')->group(function(){
@@ -67,21 +67,21 @@ Route::middleware('auth:api', 'throttle:3,1')->group(function(){
 });
 
 
-Route::middleware('throttle:3,1')->group(function(){
-  Route::get('/index', 'DashboardController@index');
+// Route::middleware('throttle:3,1')->group(function(){
+//   Route::get('/index', 'DashboardController@index');
 
-  Route::get('/editusers', 'DashboardController@editUsers');
-});
+//   Route::get('/editusers', 'DashboardController@editUsers');
+// });
 
 
-Route::prefix('dashboard')->group(function(){
-  Route::get('/', function(){
-    echo "We are in the /dashboard path";
-  });
-  Route::get('users', function(){
-    echo "We are in the /dashboard/users";
-  });
-});
+// Route::prefix('dashboard')->group(function(){
+//   Route::get('/', function(){
+//     echo "We are in the /dashboard path";
+//   });
+//   Route::get('users', function(){
+//     echo "We are in the /dashboard/users";
+//   });
+// });
 
 //catch all unmatched paths:
 
@@ -102,5 +102,23 @@ Route::namespace('Customers')->group(function(){
 
   Route::prefix('frontend')->namespace('FrontEnd')->group(function(){
     Route::get('customers','Customer@index');
+  });
+});
+
+//Dashboard routes
+
+// Route::group([
+//   'namespace' => 'Dashboard',
+//   'prefix' => 'dashboard'
+// ],function(){
+//   Route::get('/index', 'DashboardController@index');
+//   Route::get('/editusers', 'DashboardController@editUsers');
+// });
+
+
+Route::namespace('Dashboard')->group(function(){
+  Route::prefix('dashboard')->group(function(){
+    Route::get('/index', 'DashboardController@index');
+    Route::get('/editusers', 'DashboardController@editUsers');
   });
 });
