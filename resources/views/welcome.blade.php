@@ -93,6 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                     <a href="/helper">helper</a>
+                    <a href="<?php echo route('users.profile.show', ['id'=>14]);?>">profile</a>
                 </div>
             </div>
         </div>

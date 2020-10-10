@@ -122,3 +122,13 @@ Route::namespace('Dashboard')->group(function(){
     Route::get('/editusers', 'DashboardController@editUsers');
   });
 });
+
+
+
+//Name prefixes
+
+Route::name('users.')->prefix('users')->group(function(){
+  Route::name('profile.')->prefix('profile')->group(function(){
+    Route::get('{id}', 'UsersController@index')->name('show');
+  });
+});
