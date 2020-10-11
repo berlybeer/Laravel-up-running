@@ -136,7 +136,7 @@ Route::name('users.')->prefix('users')->group(function(){
 
 
 
-Route::get('invitations/{invitation}/{answer}', 'InvitationController@index')->name('invitations');
+Route::get('invitations/{invitation}/{answer}', 'InvitationController@index')->name('invitations')->middleware('signed');
 
 //URL::signedRoute('post', ['post' => 1]);
 
