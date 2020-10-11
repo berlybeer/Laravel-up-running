@@ -94,6 +94,13 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                     <a href="/helper">helper</a>
                     <a href="<?php echo route('users.profile.show', ['id'=>14]);?>">profile</a>
+                    <a href="<?php echo URL::signedRoute('unsubscribe', ['user' => 1]);?>">Signed</a>
+                    <!-- Generate a normal link -->
+                    <a href="<?php echo URL::route('invitations', ['invitation' => 12345, 'answer' => 'yes']);?>">Invitation</a>
+                        <!-- Generate a signed link -->
+                    <a href="<?php echo URL::signedRoute('invitations', ['invitation' => 12345, 'answer' => 'yes']);?>">Invitation signed</a>
+                    <!-- Generate an expiring (temporary) signed link -->
+                    <a href="<?php echo URL::temporarySignedRoute('invitations', now()->addHours(4), ['invitation' => 12345, 'answer' => 'yes']);?>">Invitation expiring signed</a>
                 </div>
             </div>
         </div>

@@ -132,3 +132,19 @@ Route::name('users.')->prefix('users')->group(function(){
     Route::get('{id}', 'UsersController@index')->name('show');
   });
 });
+
+
+
+
+Route::get('invitations/{invitation}/{answer}', 'InvitationController@index')->name('invitations');
+
+//URL::signedRoute('post', ['post' => 1]);
+
+//url?signature=09435840935843lkjsfglkjfg
+
+
+Route::get('/unsubscribe', function(){
+  dd(request()->hasValidSignature());
+})->name('unsubscribe');
+
+//URL::signedRoute('unsubscribe', ['user' => 1]);
