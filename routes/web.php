@@ -160,10 +160,10 @@ Route::get('ready', function(){
 
 
 //Passing variables to views
-Route::get('tasks', function(){
-  return view('tasks.index')
-  ->with('tasks', Task::all());
-});
+// Route::get('tasks', function(){
+//   return view('tasks.index')
+//   ->with('tasks', Task::all());
+// });
 
 
-
+Route::resource('tasks','TasksController');
