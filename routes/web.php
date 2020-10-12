@@ -2,6 +2,8 @@
 
 
 use App\Greeting;
+use App\Task;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,8 +152,18 @@ Route::get('/unsubscribe', function(){
 //URL::signedRoute('unsubscribe', ['user' => 1]);
 
 
-//Passing variables to views
+//Simple view usage()
 
 Route::get('ready', function(){
   return view('ready');
 });
+
+
+//Passing variables to views
+Route::get('tasks', function(){
+  return view('tasks.index')
+  ->with('tasks', Task::all());
+});
+
+
+
