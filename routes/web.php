@@ -167,3 +167,11 @@ Route::get('ready', function(){
 
 
 Route::resource('tasks','TasksController');
+
+
+//Returning simple routes directly with Route::view()
+
+//Route::view('/galery', 'galery');
+
+Route::view('/galery', 'galery', ['User' => 'Michael']);
+
