@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Providers;
+use View;
+use App\Task;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->share('layout', 'Hello world');
+
+        $tasks = Task::all();
+        View::share('tasks', $tasks);
     }
 }
