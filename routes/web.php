@@ -176,4 +176,10 @@ Route::resource('tasks','TasksController');
 Route::view('/galery', 'galery', ['User' => 'Michael']);
 
 
-Route::get('/easy' , 'EasyController@index');
+Route::get('/easy' , 'EasyController@index')->name('easy.index');
+
+
+//routes/web.php
+
+Route::get('easy/create', 'EasyController@create');
+Route::post('easy/store', 'EasyController@store')->name('easy.store');

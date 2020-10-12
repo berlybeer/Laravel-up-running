@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Easy;
 
+
 class EasyController extends Controller
 {
     /**
@@ -25,6 +26,7 @@ class EasyController extends Controller
     public function create()
     {
         //
+        return view('easy.create');
     }
 
     /**
@@ -36,6 +38,10 @@ class EasyController extends Controller
     public function store(Request $request)
     {
         //
+
+        // dd(request()->only(['name', 'description']));
+        Easy::create(request()->only(['name', 'description']));
+        return redirect()->route('easy.index');
     }
 
     /**
