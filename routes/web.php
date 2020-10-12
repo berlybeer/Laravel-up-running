@@ -148,3 +148,10 @@ Route::get('/unsubscribe', function(){
 })->name('unsubscribe');
 
 //URL::signedRoute('unsubscribe', ['user' => 1]);
+
+
+//Passing variables to views
+
+Route::get('ready', function(){
+  return view('ready');
+});

@@ -1,0 +1,1 @@
+<h1>Ready view</h1>
